@@ -45,7 +45,20 @@
 
     <x-menu-top></x-menu-top>
 
-    {{ $slot }}
+    <div class="uk-section uk-section-muted uk-section-small" style="height: 100vh;">
+        <div class="uk-container uk-container-large">
+
+        @if (session('message'))
+            <div class="uk-alert-{{ session('alert') }}" data-uk-alert>
+                <a href class="uk-alert-close" data-uk-close></a>
+                <p>{!! session('message') !!}</p>
+            </div>
+        @endif
+
+        {{ $slot }}
+
+        </div>
+    </div>
 
 </body>
 {{--@yield('js')--}}

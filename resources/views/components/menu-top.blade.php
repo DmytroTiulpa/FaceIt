@@ -21,8 +21,11 @@
                     </a>
 
                     <ul class="uk-navbar-nav">
-                        <li class="<?php echo $_SERVER['REQUEST_URI'] === '/' ? 'uk-active' : ''; ?>">
+                        <li class="{{ Route::is('home') ? 'uk-active' : '' }}">
                             <a href="/">{{ __('Home') }}</a>
+                        </li>
+                        <li class="{{ Route::is('users') ? 'uk-active' : '' }}">
+                            <a href="/users">{{ __('Users')}}</a>
                         </li>
                         <li>
                             <a href="#">
