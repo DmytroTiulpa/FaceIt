@@ -6,8 +6,8 @@
     </div>
 </div>--}}
 
-<div id="modal-center" data-uk-modal>
-    <div class="uk-modal-dialog">
+<div id="modal-center" class="uk-flex-top" data-uk-modal>
+    <div class="uk-modal-dialog uk-margin-auto-vertical">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
             <h2 class="uk-modal-title">Modal Title</h2>

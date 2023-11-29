@@ -51,7 +51,7 @@
 
     <script type="text/javascript">
         function confirmDelete(id, name) {
-            if (confirm('Вы уверены, что хотите удалить пользователя' + name +'?')) {
+            if (confirm('Вы уверены, что хотите удалить пользователя ' + name + '?')) {
                 document.getElementById('delete-user-' + id).submit();
             }
         }

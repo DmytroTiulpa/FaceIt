@@ -31,3 +31,19 @@ Route::get('/users/{id}', 'UsersController@show');          // show (Отобр�
 Route::get('/users/{id}/edit', 'UsersController@edit');     // edit (Отображение формы редактирования ресурса):
 Route::put('/users/{id}', 'UsersController@update');        // update (Обновление информации о ресурсе):
 Route::delete('/users/{id}', 'UsersController@destroy');    // destroy (Удаление ресурса):*/
+
+/*--- LOGIN -----------------------------------------------------*/
+Route::get('/login', function () {
+    /*if (Auth::check()){ // если пользователь аутентифицирован
+        return redirect('admin'); // перенаправляем в админку
+    }*/
+    return view('auth/login'); // перенаправляем на авторизацию
+})->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+
+/*--- REGISTRATION -----------------------------------------------------*/
+/*Route::get('/register',  [RegisterController::class, 'showRegistrationForm'])->name('register');*/
+Route::get('/register',  function () {
+    return view('auth/register'); // перенаправляем на регистрацию
+})->name('register');
+Route::post('/register', [RegisterController::class, 'register']);

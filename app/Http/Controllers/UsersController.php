@@ -39,13 +39,26 @@ class UsersController extends Controller
 
         if ($request->input('action') === 'save') {
             return redirect()->route('users.edit', ['user' => $user->id])
-            ->with('success', 'User <b>'.$user->name.'</b> created successfully.');
+                ->with([
+                    'message' => 'User <b>'.$user->name.'</b> created successfully.',
+                    'alert' => 'primary' // primary | success | warning | danger
+                ]);
         }
 
         if ($request->input('action') === 'save&exit') {
             return redirect()->route('users.index')
-                ->with('success', 'User <b>'.$user->name.'</b> created successfully.');
+                ->with([
+                    'message' => 'User <b>'.$user->name.'</b> created successfully.',
+                    'alert' => 'primary' // primary | success | warning | danger
+                ]);
         }
+
+        return redirect()->back()
+            ->with([
+                'message' => 'Something went wrong 8)',
+                'alert' => 'danger'
+            ]);
+
     }
 
     /**
@@ -87,7 +100,6 @@ class UsersController extends Controller
 
         if ($request->input('action') === 'save') {
             return redirect()->route('users.edit', ['user' => $user->id])
-                //->with('success', 'User <b>'.$user->name.'</b> updated successfully.');
                 ->with([
                     'message' => 'User <b>'.$user->name.'</b> updated successfully.',
                     'alert' => 'primary' // primary | success | warning | danger
@@ -96,12 +108,17 @@ class UsersController extends Controller
 
         if ($request->input('action') === 'save&exit') {
             return redirect()->route('users.index')
-                //->with('success', 'User <b>'.$user->name.'</b> updated successfully.');
                 ->with([
                     'message' => 'User <b>'.$user->name.'</b> updated successfully.',
                     'alert' => 'primary' // primary | success | warning | danger
                 ]);
         }
+
+        return redirect()->back()
+            ->with([
+                'message' => 'Something went wrong 8)',
+                'alert' => 'danger'
+            ]);
 
     }
 
